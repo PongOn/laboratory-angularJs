@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<html ng-app="docsSimpleDirective">
+<html ng-app="docsSimpleDirective" ng-controller="outerController">
   <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *"/>
+    <link ng-href="css/{{styleSheet}}" rel="stylesheet"/>
   </head>
-  <body>
-    <div ng-controller="Controller">
+  <body class="theme">
+    <div>
+      <input ng-model="styleSheet"></input>
+    </div>
+    {{inputText}}
+    <div>
       <div my-customer>
       </div>
     </div>
-    <script src="bower_components/angular/angular.js">
-    </script>
-    <script src="js/index.js">
-    </script>
-  </body>
+    <div>
+      <my-template  input="inputText">
+      </my-template>
+    </div>
+    <!-- <div>
+    <my-customer>
+    </my-customer>
+  </div> -->
+  <script src="bower_components/angular/angular.js">
+  </script>
+  <script src="js/index.js">
+  </script>
+</body>
 </html>
