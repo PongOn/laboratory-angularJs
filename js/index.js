@@ -1,25 +1,18 @@
-angular.module('docsSimpleDirective', [])
-  .controller('outerController', ['$scope', function($scope) {
-    $scope.customer = {
+angular.module('docsSimpleDirective', ['docsSimpleDirective2'])
+  .controller('outerController', ['$scope', '$rootScope', function($scope,
+    $rootScope) {
+    $rootScope.customer = {
       name: 'Naomi',
       address: '1600 Amphitheatre',
       outerScope: 'outer'
     };
-    $scope.inputText = 123;
-    $scope.styleSheet = 'whiteTheme.css';
+    $rootScope.inputText = 123;
+    $rootScope.styleSheet = 'darkTheme.css';
+    $rootScope.bodyTheme = '';
   }])
   .directive('myCustomer', function() {
     return {
       template: 'Name: {{customer.name}} Address: {{customer.address}}'
-    };
-  })
-  .directive('myTemplate', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'template/template.html',
-      scope: {
-        input: '='
-      }
     };
   });
 // angular.module('docsRestrictDirective', [])
